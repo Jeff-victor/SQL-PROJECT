@@ -3,17 +3,12 @@
 A full-stack web application for managing restaurant reservations, built with **PHP** and **MySQL**.
 
 #  Requirements
-
  PHP 
  MySQL 
  Web server
-
+ GIT clone https://github.com/Jeff-victor/SQL-PROJECT
+cd restaurant-reservation
 > PHP extensions needed: `pdo`, `pdo_mysql`
-
----
-
-
-
 #. Import the database
 
 ```bash
@@ -35,8 +30,6 @@ define('DB_PASS', '');          //  your MySQL password
 define('DB_NAME', 'restaurant_reservation');
 ```
 
-
-
 # Default Credentials
 
 | Role  | Email                    | Password    |
@@ -51,15 +44,12 @@ define('DB_NAME', 'restaurant_reservation');
 # Database Schema
 
 # Tables
-
-
-
+# `users
+ColumnTypeDescriptionidINTUnique ID, auto incrementnameVARCHAR(100)Full nameemailVARCHAR(150)Email address (unique)password_hashVARCHAR(255)Encrypted passwordroleENUM'admin' or 'user'created_atTIMESTAMPRegistration date
 # `tables`
-
-
+ColumnTypeDescriptionidINTUnique ID, auto incrementtablenumberVARCHAR(10)Table number (e.g. T01)capacityTINYINTNumber of seatslocationVARCHAR(80)Location (e.g. Main Hall)isactiveTINYINT(1)1 = active, 0 = inactive
 # `reservations`
-
-
+ColumnTypeDescriptionidINTUnique ID, auto incrementuseridINTLinks to users.idtableidINTLinks to tables.idreservationdateDATEDate of reservationreservationtimeTIMETime of reservationpartysizeTINYINTNumber of guestsstatusENUMpending / confirmed / cancelled / completednotesTEXTSpecial requestscreated_atTIMESTAMPWhen it was created
 **Unique constraint:** `(table_id, reservation_date, reservation_time)` — prevents double-booking.
 
 # `roles`
